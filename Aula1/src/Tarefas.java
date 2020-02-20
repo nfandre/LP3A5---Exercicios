@@ -47,15 +47,24 @@ public class Tarefas implements Runnable {
 	}
 	
 	public void somar() {
-		int valor1 = Integer.parseInt(primeiro.getText());
-		int valor2 = Integer.parseInt(segundo.getText());
+		long valor1 = Long.parseLong(primeiro.getText());
+		long valor2 = Long.parseLong(segundo.getText());
 		
-		
-		for (int i = 0; i < valor1+valor2; i++) {
-				
+		BigInteger calculo = new BigInteger("0");
+		for (int i = 0; i < valor1; i++) {
+			calculo = calculo.add(new BigInteger("1"));
+			if(valor1 == i-1) {
+				for (int j = 0; j < valor2; i++) {
+					calculo = calculo.add(new BigInteger("1"));
+					
+				}
+			}
+			
+			
 		}
-		int result = valor1 + valor2;
-		resultado.setText(""+result);
+		
+		//int result = valor1 + valor2;
+		resultado.setText(calculo.toString());
 	}
 	public void sub() {
 		int valor1 = Integer.parseInt(primeiro.getText());

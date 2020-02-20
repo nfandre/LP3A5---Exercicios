@@ -78,6 +78,7 @@ public class Principal {
 		janela.add(painel);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setPreferredSize(new Dimension(400, 500));
+		janela.setResizable(false);
 		janela.pack();
 		janela.setVisible(true);
 		
