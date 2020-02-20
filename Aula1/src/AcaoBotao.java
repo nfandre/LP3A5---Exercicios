@@ -11,11 +11,14 @@ public class AcaoBotao implements ActionListener{
 	private JTextField primeiro;
 	private JTextField segundo;
 	private JLabel resultado;
+	private Operacao operacao;
 	
-	public AcaoBotao(JTextField primeiro, JTextField segundo, JLabel resultado) {
+	public AcaoBotao(JTextField primeiro, JTextField segundo, JLabel resultado , Operacao operacao) {
 		this.primeiro = primeiro;
 		this.segundo = segundo;
 		this.resultado = resultado;
+		this.operacao = operacao;
+		
 	}
 	
 
@@ -23,13 +26,10 @@ public class AcaoBotao implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		Thread thread = new Thread(new TarefaMutiplicacao(primeiro,segundo,resultado), "TAREFA MULTI");
+
+		Thread thread = new Thread(new Tarefas(primeiro,segundo,resultado, operacao));
 		thread.start();
-		Thread thread2 = new Thread(new TarefaMutiplicacao(primeiro,segundo,resultado), "TAREFA MULTI1");
-		thread2.start();
 		
-		Thread thread3 = new Thread(new TarefaMutiplicacao(primeiro,segundo,resultado), "TAREFA MULTI2");
-		thread3.start();
 	}
 
 }
