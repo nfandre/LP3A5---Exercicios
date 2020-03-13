@@ -1,6 +1,5 @@
 package ExemploVagaCarro;
 
-import javax.sound.midi.Soundbank;
 
 public class Vaga {
 	private boolean estaSuja = true;
