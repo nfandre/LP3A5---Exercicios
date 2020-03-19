@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Cliente {
 
-	public static void main(String[] args) throws UnknownHostException, IOException {
+	public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException {
 		Socket socket = new Socket("localhost", 8080);
 		
 		System.out.println("------ Conexão Estabeleciada ------");
@@ -60,7 +60,16 @@ public class Cliente {
 					e.printStackTrace();
 				}
 			}
-		});		
+		});	
+		
+		EnviarComando.start();
+		threadRespostaServidor.start();
+				//thread main espera
+		EnviarComando.join();
+
+
+		socket.close();
+		
 	}
 
 }

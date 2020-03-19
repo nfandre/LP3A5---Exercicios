@@ -13,14 +13,17 @@ public class Servidor {
 		
 		ServerSocket servidor = new ServerSocket(8080);
 		
+		ExecutorService pooldeThread = Executors.newCachedThreadPool();
+		
 		//aceitando requisição
 		while(true) {
 			Socket socket = servidor.accept();
 			System.out.println("Aceitando novo cliente na porta: " + socket.getPort());
 			
-		//	DistribuirTarefas distribuiTarefa = new DistribuirTarefas(socket);
-		//	pooldeThread.execute(distribuiTarefa);
-			//new Thread(distribuiTarefa).start();
+			Tarefas distribuiTarefa = new Tarefas(socket);
+			pooldeThread.execute(distribuiTarefa);
+
+
 			
 		
 			
